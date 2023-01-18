@@ -1,0 +1,45 @@
+###
+### A complete description of a Prefect Deployment for flow 'snowflake-query-flow'
+###
+name: lambda-tmdb-s3
+description: null
+version: e2c2caec9c2aa40b375e97d45db69f70
+# The work queue that will handle this deployment's runs
+work_queue_name: lamdba-tmdb
+tags: []
+parameters: {}
+schedule: null
+infra_overrides: {}
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  working_dir: null
+  block_type_slug: process
+  _block_type_slug: process
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: snowflake-query-flow
+manifest_path: null
+storage:
+  bucket_path: prefect-test-1/flows/lamba-tmdb
+  aws_access_key_id: null
+  aws_secret_access_key: null
+  _block_document_id: 224e17bc-f39b-473f-bb4d-ec6edbcd05c7
+  _block_document_name: s3-prefect
+  _is_anonymous: false
+  block_type_slug: s3
+  _block_type_slug: s3
+path: ''
+entrypoint: snow_conn_test.py:snowflake_query_flow
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties: {}
+  required: null
+  definitions: null

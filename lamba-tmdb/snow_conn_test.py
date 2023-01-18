@@ -36,11 +36,12 @@ def snowflake_query_flow():
     
     logger = get_run_logger()
     
+    # The max should never exceed 70 records based on URL limits
     query = """
     SELECT ORG_ID, CREATIVEWORKID, IMDB_VALUE
     FROM EIDR.PUBLIC.ORGS_IMDB_FILTERED
     ORDER BY RANDOM()
-    LIMIT 3;
+    LIMIT 5;
     """
     
     result = snowflake_query(
@@ -61,7 +62,6 @@ def snowflake_query_flow():
         return logger.info(response.status_code)
     else:
         return logger.warning(response.status_code)
-
 
 
 if __name__ == "__main__":

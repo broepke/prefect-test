@@ -31,7 +31,7 @@ def built_url(id_list):
     
     return url
 
-@flow
+@flow(retries = 3)
 def snowflake_query_flow():
     
     logger = get_run_logger()
@@ -41,7 +41,7 @@ def snowflake_query_flow():
     SELECT ORG_ID, CREATIVEWORKID, IMDB_VALUE
     FROM EIDR.PUBLIC.ORGS_IMDB_FILTERED
     ORDER BY RANDOM()
-    LIMIT 5;
+    LIMIT 3;
     """
     
     result = snowflake_query(
@@ -51,8 +51,9 @@ def snowflake_query_flow():
     )
     
     id_list = get_imdb_list(result)
-    url = built_url(id_list)
+    logger.info(id_list)
     
+    url = built_url(id_list)
     logger.info(url)
     
     # Call the Lambda function
@@ -61,7 +62,9 @@ def snowflake_query_flow():
     if response.status_code == 200:
         return logger.info(response.status_code)
     else:
-        return logger.warning(response.status_code)
+        raise Exception(response.status_code)
+        #return logger.warning(response.status_code)
+    
 
 
 if __name__ == "__main__":

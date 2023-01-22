@@ -32,7 +32,7 @@ def built_url(id_list):
     return url
 
 @flow(retries = 3)
-def snowflake_query_flow():
+def get_tmdb_records():
     
     logger = get_run_logger()
     
@@ -68,4 +68,4 @@ def snowflake_query_flow():
 
 
 if __name__ == "__main__":
-    snowflake_query_flow()
+    get_tmdb_records()

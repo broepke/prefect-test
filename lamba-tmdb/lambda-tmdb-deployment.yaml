@@ -1,21 +1,15 @@
 ###
-### A complete description of a Prefect Deployment for flow 'snowflake-query-flow'
+### A complete description of a Prefect Deployment for flow 'get-tmdb-records'
 ###
 name: lambda-tmdb-s3
 description: null
-version: 8a68c8f251ea4b7a7f52dac2adb073ef
+version: b4340a0b738b2447e59c3b90ef3bd4f9
 # The work queue that will handle this deployment's runs
-work_queue_name: lamdba-tmdb
+work_queue_name: lambda-tmdb
 tags: []
 parameters: {}
 schedule: null
 infra_overrides: {}
-
-###
-### DO NOT EDIT BELOW THIS LINE
-###
-flow_name: snowflake-query-flow
-manifest_path: null
 infrastructure:
   type: process
   env: {}
@@ -24,13 +18,16 @@ infrastructure:
   command: null
   stream_output: true
   working_dir: null
-  _block_document_id: 34da470b-ee3b-4875-9415-ab9249ebf320
-  _block_document_name: anonymous-41c7d560-085e-4fdd-9617-44ca923dc0c3
-  _is_anonymous: true
   block_type_slug: process
   _block_type_slug: process
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: get-tmdb-records
+manifest_path: null
 storage:
-  bucket_path: prefect-test-1/flows/lamba-tmdb
+  bucket_path: prefect-test-1/flows/lambda-tmdb
   aws_access_key_id: '**********'
   aws_secret_access_key: '**********'
   _block_document_id: 224e17bc-f39b-473f-bb4d-ec6edbcd05c7
@@ -39,7 +36,7 @@ storage:
   block_type_slug: s3
   _block_type_slug: s3
 path: ''
-entrypoint: snow_conn_test.py:snowflake_query_flow
+entrypoint: lambda-tmdb.py:get_tmdb_records
 parameter_openapi_schema:
   title: Parameters
   type: object

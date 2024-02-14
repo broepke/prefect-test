@@ -1,7 +1,7 @@
 from prefect import flow, get_run_logger
 
 
-@flow
+@flow(name="Hello, World ECS", retries=2)
 def my_flow():
     logger = get_run_logger()
     logger.info("Hello from ECS!!")

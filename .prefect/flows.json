@@ -1,0 +1,4 @@
+{
+  "my-flow": "my_flow.py:my_flow",
+  "my-flow-2": "my_flow_2.py:my_flow_2"
+}

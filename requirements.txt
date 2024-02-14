@@ -1,5 +1,10 @@
+bs4
 s3fs
 boto3
-prefect_aws
 prefect
 prefect-snowflake
+prefect-shell
+prefect-slack
+prefect-github
+prefect-aws
+snowflake-connector-python[pandas]
